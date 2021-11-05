@@ -1,0 +1,208 @@
+// SLIDE OUT
+#panel {
+    width: 100%;
+    height: auto;
+    z-index: 2;
+    -webkit-box-shadow: 6px 0px 14px 0px rgba(0, 0, 0, 0.23);
+    -moz-box-shadow: 6px 0px 14px 0px rgba(0, 0, 0, 0.23);
+    box-shadow: 6px 0px 14px 0px rgba(0, 0, 0, 0.23);
+}
+
+body {
+    width: 100%;
+    height: 100%;
+}
+
+// MOBILE MENU
+.mobile-popout {
+    position: fixed;
+    width: 100%;
+    padding: @header-height + 60px 30px 30px;
+    bottom: 0px;
+    left: 0;
+    transform: translateX(0) translateZ(0);
+    background-color: @background-color;
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    height: 100vh;
+    overflow: auto;
+    z-index: 997;
+    color: @text-color-primary;
+
+    .is--mobile-nav__active & {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .link-list {
+        .font-size(56);
+        font-weight: bold;
+        margin-top: @bl*4;
+        font-family: @font-bold;
+
+        .link-list-item:not(:last-of-type) {
+            margin-bottom: @bl*4;
+        }
+
+        .link-list-item a {
+            &:hover {
+                color: @secondary-color;
+            }
+        }
+
+    }
+}
+
+// MOBILE MENU
+
+.mobile-menu {
+
+    .mobile-menu__site-menu {
+        transition: @easing;
+
+        /* Main Menus / Upper-most Menu Links */
+
+        #mobile-menu {
+            display: block;
+            position: relative;
+            list-style-type: none;
+            text-align: center;
+            text-transform: uppercase;
+
+            a {
+                .transition();
+                position: relative;
+                left: 0px;
+
+                &:hover {
+
+                }
+            }
+
+            .current_page_item > a {
+                left: 10px;
+                color: @text-color-primary;
+            }
+
+            // Button added to nav item that shows sub menu when clicked
+            .nav-sub-menu-button {
+                font-size: 16px;
+                position: absolute;
+                top: 5px;
+                right: 0px;
+                color: @primary-color;
+                transition: all 200ms ease-in-out;
+                transform: rotate(0deg);
+                background: transparent;
+                border: none;
+                border-radius: 15px;
+                padding-top: 2px;
+                width: 30px;
+                height: 30px;
+                line-height: 28px;
+                .transition();
+
+                .fas {
+                    transition: all 200ms ease-in-out;
+                }
+
+                &.nav-sub-menu-button--open .fas {
+                    transform: rotate(180deg);
+                }
+
+                &:hover {
+                    background: @secondary-color-light;
+                    border-color: @secondary-color-light;
+                    color: @white;
+                }
+            }
+
+            .nav-sub-menu-button--visible > ul.sub-menu {
+                display: block !important;
+                visibility: visible !important;
+                height: auto !important;
+            }
+
+            /* Set list to inline-block for horizontal menu */
+
+            & > li {
+                display: block;
+                text-align: center;
+                margin-bottom: 10px;
+                position: relative;
+
+                & > a {
+                    letter-spacing: 0px;
+                    color: @primary-color;
+                    .font-size(16);
+                    line-height: 1.5;
+                    margin-bottom: 20px;
+                    font-family: @font-text;
+                    font-weight: @weight-bold;
+                    text-transform: uppercase;
+                    display: inline-block;
+
+                    &:hover {
+                        color: @secondary-color;
+                    }
+                }
+
+                /**** SUB MENU ****/
+
+                ul {
+                    display: none;
+                    position: relative;
+                    width: auto;
+                    line-height: 20px;
+                    margin-top: 0px;
+                    padding-left: 20px;
+                    color: @primary-color;
+                    background: transparent;
+                    text-align: left;
+                    list-style-type: none;
+
+                    li {
+
+                        a {
+                            letter-spacing: 0px;
+                            color: @primary-color;
+                            .font-size(14);
+                            line-height: 1.5;
+                            margin-bottom: 20px;
+                            font-family: @font-text;
+                            font-weight: @weight-bold;
+                            text-transform: uppercase;
+                            display: inline-block;
+
+                            &:hover {
+                                color: @secondary-color;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .social-list {
+            text-align: center;
+            margin-top: @baseline*2;
+
+            .social-item {
+                display: inline-block;
+
+                a, a:visited {
+                    color: @text-color-light;
+                    .font-size(16);
+                    .transition();
+                    min-width: 40px;
+                }
+
+                a:hover, a:focus {
+                    color: @primary-color
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,121 @@
+.hamburger {
+    padding: 15px 15px;
+    display: inline-block;
+    cursor: pointer;
+    transition-property: opacity, filter;
+    transition-duration: 0.15s;
+    transition-timing-function: linear;
+    font: inherit;
+    color: inherit;
+    text-transform: none;
+    background-color: transparent;
+    border: 0;
+    margin: 0;
+    overflow: visible; }
+
+.hamburger.is-active:hover {
+
+}
+
+.hamburger.is-active .hamburger-inner,
+.hamburger.is-active .hamburger-inner::before,
+.hamburger.is-active .hamburger-inner::after {
+    background-color: @primary-color; }
+
+.hamburger-box {
+    width: 40px;
+    height: 24px;
+    display: inline-block;
+    position: relative; }
+
+.hamburger-inner {
+    display: block;
+    top: 50%;
+    margin-top: -2px;
+
+}
+
+.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+    background-color: @primary-color;
+    position: absolute;
+    .transition();
+}
+
+.hamburger-inner {
+    width: 54px;
+    height: 6px;
+    border-radius: 3px;
+    border-top: 2px solid @primary-color;
+}
+
+.hamburger-inner::before, .hamburger-inner::after {
+    content: "";
+    display: block;
+}
+
+//top bun
+.hamburger-inner::before {
+    top: -19px;
+    left: 2px;
+    border-top-right-radius: 12px;
+    border-top-left-radius: 12px;
+    width: 50px;
+    height: 9px;
+    border-bottom: 2px solid @primary-color;
+}
+
+//bottom bun
+.hamburger-inner::after {
+    bottom: -17px;
+    left: 2px;
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+    width: 50px;
+    height: 9px;
+    border-top: 2px solid @primary-color;
+}
+
+//  HAMBURGER HOVER
+
+.hamburger:hover {
+    .hamburger-inner {
+        background-color: #593729;
+        border-color: orange;
+        border-width: 3px;
+        transform: scale(1.2);
+        height: 8px;
+    }
+
+    .hamburger-inner:before {
+        background-color: tan;
+        border-color: forestgreen;
+        border-width: 4px;
+        height: 12px;
+        top: -19px;
+    }
+
+    .hamburger-inner:after {
+        background-color: tan;
+        border-color: darkred;
+        border-width: 4px;
+        height: 10px;
+        bottom: -14px;
+    }
+
+}
+
+.is--mobile-nav__active {
+
+    .hamburger-inner:before, .hamburger-inner:after {
+        display: none;
+    }
+
+    .hamburger-inner {
+        background-color: @text-color-primary;
+    }
+
+    .hamburger:hover .hamburger-inner {
+        background-color: @secondary-color;
+        border: 1px solid @primary-color;
+    }
+}

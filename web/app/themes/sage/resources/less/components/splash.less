@@ -1,0 +1,75 @@
+.splash {
+    .full-page();
+    .section-padding();
+    background-position-y: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: 540px;
+    background-color: @primary-color-light;
+    overflow: hidden;
+
+    .splash-content-col-1 {
+
+        h1 {
+            .font-size(90);
+            text-transform: uppercase;
+            margin-top: @bl*3.5;
+            margin-bottom: @bl*2;
+            font-weight: bolder;
+        }
+
+        .splash--job-title {
+            background-color: @accent-color;
+            border-top: 1px solid @primary-color;
+            border-right: 1px solid @primary-color;
+            border-bottom: 1px solid @primary-color;
+            width: 550px;
+            height: 80px;
+            position: relative;
+            font-family: @font-script;
+            .font-size(54);
+            font-style: italic;
+            line-height: 80px;
+            margin-bottom: @bl*2;
+            color: @text-color-primary;
+            z-index: 2;
+
+            &:after {
+                content: '';
+                width: 100%;
+                height: 78px;
+                border-top: 1px solid @primary-color;
+                border-bottom: 1px solid @primary-color;
+                position: absolute;
+                left: -160px;
+                top: -1px;
+                background-color: @accent-color;
+                z-index: -1;
+            }
+        }
+
+        p {
+            font-style: italic;
+            font-family: @font-script;
+            .font-size(34);
+
+            span {
+                color: @secondary-color;
+                font-weight: @weight-thin;
+
+            }
+        }
+
+    }
+
+    .splash-content-col-2 {
+        position: relative;
+
+        img {
+            .full-width();
+            position: relative;
+            top: -155px;
+            right: -60px;
+        }
+    }
+}
